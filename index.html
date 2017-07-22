@@ -3,6 +3,7 @@
 
 <head>
     <title>SURGE KIOSK</title>
+    <input type="file" onchange="handleFiles(this.files)" accept=".csv">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -44,12 +45,10 @@
             <div class="alert alert-warning" data-toggle="modal" data-target="#myModal" role="alert">words about physics</div>
 
         </div>
-        <div class="col-lg-4 text-center">
-            <div class="jumbotron">
-                <h1>Our Logo</h1>
-                <p>words about physics</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
+        <div class="col-lg-4 text-center" style="padding-top:25%;">
+
+            <img src="./images/logo.png" alt="" class="main-logo">
+
         </div>
         <div class="col-lg-4 text-center">
             <div class="alert alert-warning" role="alert" data-toggle="modal" data-target="#myModal">
@@ -89,7 +88,7 @@
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    ...
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem eveniet dolorum nulla rerum ducimus velit deleniti beatae accusamus. Quis voluptatem qui asperiores quia aperiam dolor, mollitia hic. Voluptates dolores, necessitatibus.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -98,6 +97,7 @@
             </div>
         </div>
     </div>
+    <script src="scripts/surge.js"></script>
 
 </body>
 

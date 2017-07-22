@@ -12,3 +12,9 @@
     opacity: 0.8;
     cursor: pointer;
 }
+
+.main-logo {
+    max-width: 300px;
+    height: auto;
+    margin: auto;
+}

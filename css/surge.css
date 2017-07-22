@@ -1,5 +1,14 @@
-﻿
-body{
-    background-color:black;
+﻿body {
+    background-color: black;
     color: white;
+}
+
+.modal-dialog {
+    width: 900px;
+    margin: 30px auto;
+}
+
+.alert:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }

@@ -16,11 +16,14 @@
     - Sabin 7/24
 
 */
-
+let projects = [];
 $(document).ready(function() {
-    console.log("SURGE KIOSK!")
-        // Grab stuff from local storage
-        // Call function to get dat stuff on the page
+    projects = JSON.parse(localStorage.getItem('projects'));
+    if (!projects) {
+        // Do whatever we plan to do if we don't have data in localstorage yet.
+    } else {
+        populateProjects();
+    }
 });
 
 
@@ -62,7 +65,7 @@ function loadHandler(event) {
         }
         projects.push(object);
     }
-    localStorage.setItem('projects', JSON.stringify(projects));
+    localStorage.setItem('projects', JSON.stringify(projects.slice(0, projects.length - 1)));
 }
 
 
@@ -94,5 +97,20 @@ function CSVtoArray(text) {
 }
 
 function populateProjects() {
+    let len = projects.length / 2;
+    let col1 = projects.slice(0, len);
+    let col2 = projects.slice(len);
+    console.log(projects)
+    for (let i = 0; i < projects.length; i++) {
+        $(".col-" + (i % 2 + 1)).append(
+            '<div class="alert alert-warning" onclick="populateModal(\'' + projects[i].project_name + '\' )" data-toggle="modal" data-target="#myModal" role="alert">' +
+            projects[i].project_name +
+            '</div>'
+        );
+    }
+}
+
+function populateModal(name) {
+    let currentModal = projects[_.findKey(projects, { 'project_name': name })];
 
 }

@@ -98,7 +98,7 @@ function populateModal(name) {
     $('#studentNames').text(currentModal.students);
     $('#advisorNames').text(currentModal.advisors);
     $('#projectDescription').text(currentModal.project_description);
-    $("#advisorPhoto").attr("src", '../images/' + currentModal.advisor_photo);
-    $("#studentPhoto").attr("src", '../images/' + currentModal.student_photo);
-    $("#projectPhoto").attr("src", '../images/' + currentModal.project_photo);
+    $("#advisorPhoto").attr("src", 'images/' + currentModal.advisor_photo);
+    $("#studentPhoto").attr("src", 'images/' + currentModal.student_photo);
+    $("#projectPhoto").attr("src", 'images/' + currentModal.project_photo);
 }

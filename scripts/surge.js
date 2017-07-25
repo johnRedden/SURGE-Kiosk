@@ -1,10 +1,26 @@
 ﻿//SURGE KIOSK
 
+
+/*
+
+    Need to grab and JSON.serialize() the projects item from LocalStorage when you open the site
+    and shoves em in a variable,
+    then loop through the projects and populate the view with the data. 
+
+    When you click on a project it opens up a modal that should show more detail on the project. DONT CREATE
+    A MODAL FOR EACH ITEM. THATS LAME. When you click an item, it should populate a variable with the selected 
+    item's data and shove that stuff onto the modal.
+
+    We also need another page to hold the File Input thingy so it doesn't look so naysty. 
+
+    - Sabin 7/24
+
+*/
+
 $(document).ready(function() {
-
     console.log("SURGE KIOSK!")
-
-
+        // Grab stuff from local storage
+        // Call function to get dat stuff on the page
 });
 
 
@@ -28,23 +44,27 @@ function getAsText(fileToRead) {
 }
 
 function loadHandler(event) {
-    var csv = event.target.result;
-    processData(csv);
+    let projects = [];
+    let fragments = event.target.result.split('\n');
+    let formattedFragments = [];
+    for (const fragment of fragments) {
+        formattedFragments.push(CSVtoArray(fragment));
+    }
+    let titles = formattedFragments[3];
+    formattedFragments = formattedFragments.splice(4);
+
+    for (const project of formattedFragments) {
+        let object = {};
+        let i = 0;
+        for (let title of titles) {
+            object[title.replace(' ', '_').toLowerCase()] = project[i];
+            i++;
+        }
+        projects.push(object);
+    }
+    localStorage.setItem('projects', JSON.stringify(projects));
 }
 
-function processData(csv) {
-    var allTextLines = csv.split(/\r\n|\n/);
-    var lines = [];
-    for (var i = 0; i < allTextLines.length; i++) {
-        var data = allTextLines[i].split(';');
-        var tarr = [];
-        for (var j = 0; j < data.length; j++) {
-            tarr.push(data[j]);
-        }
-        lines.push(tarr);
-    }
-    console.log(CSVtoArray(lines[0][0]));
-}
 
 function errorHandler(evt) {
     if (evt.target.error.name == "NotReadableError") {
@@ -71,4 +91,8 @@ function CSVtoArray(text) {
     // Handle special case of empty last value.
     if (/,\s*$/.test(text)) a.push('');
     return a;
-};
+}
+
+function populateProjects() {
+
+}

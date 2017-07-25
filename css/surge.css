@@ -1,6 +1,6 @@
 ﻿body {
     background-color: black;
-    color: white;
+    /* color: white; */
 }
 
 .modal-dialog {
@@ -17,4 +17,24 @@
     max-width: 300px;
     height: auto;
     margin: auto;
+}
+
+.modal-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sub-stacking-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal-grid img {
+    margin: 5px;
+}
+
+.modal-footer {
+    text-align: left;
 }

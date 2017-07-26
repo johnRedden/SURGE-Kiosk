@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+I'm labeling this so i can keep track of what does what and for the new ppl in the projects some stuff might be unlabled because i'm lazy
+-Alex 7/25
+-->
+
 <head>
+    <!--Title of the page-->
     <title>SURGE KIOSK</title>
+    <!--Choose File button-->
     <input type="file" onchange="handleFiles(this.files)" accept=".csv">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--linking the CSS to the page-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/surge.css">
 
@@ -14,31 +22,37 @@
 <body>
 
     <div class="container">
+      <!--text that says SURGE Kiosk-->
         <h1 class="text-center">SURGE Kiosk </h1>
     </div>
 
+    <!--selecting the scripts from the script folder: source = "foldername/filename.js"-->
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
 
+    <!--The div that contains the SURGE logo-->
     <div class="container-fluid">
+        <!--positioning stuff-->
         <div class="col-lg-4 text-center col-1"></div>
         <div class="col-lg-4 text-center" style="padding-top:25%;">
+            <!--pulling hte logo from the images folder: source = "./foldername/imagename.filetype"-->
             <img src="./images/logo.png" alt="" class="main-logo">
         </div>
         <div class="col-lg-4 text-center col-2"></div>
     </div>
 
-
-
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+              <!--This div contains the header portion of the Modal-->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="projectName">Project Name</h4>
                 </div>
+                <!--This div contains the body portion of the Modal-->
                 <div class="modal-body">
+                  <!-- original in case i mess up hard -Alex
                     <div class="modal-grid">
                         <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
                         <div class="sub-stacking-grid">
@@ -48,11 +62,36 @@
                             <span id="studentNames">Student Names</span>
                         </div>
                     </div>
-                </div>
-                <div id="projectDescription" class="modal-footer">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
-                    consequuntur.
-                </div>
+                  -->
+                  <div class="tab">
+                    <button class="tablinks" onclick="openTheTab(event, 'PDF')">The PDF™</button>
+                    <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
+                  </div>
+
+                  <div id="PDF" class="tabcontent">
+                    <div class="modal-grid">
+                      <embed src="./images/sample-poster.pdf" width="1050px" height="788px">
+                    </div>
+                  </div>
+
+                  <div id="Details" class="tabcontent">
+                    <div class="modal-grid">
+                        <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
+                        <div class="sub-stacking-grid">
+                            <img id="advisorPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
+                            <span id="advisorNames">Advisor Names</span>
+                            <img id="studentPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
+                            <span id="studentNames">Student Names</span>
+                        </div>
+                        <div id="projectDescription" class="modal-footer">
+-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
+-                    consequuntur.
+-                     </div>
+                    </div>
+                  </div>
+
+
+
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 ﻿/*
-    We need another page to hold the File Input thingy so it doesn't look so naysty. 
+    We need another page to hold the File Input thingy so it doesn't look so naysty.
     - Sabin 7/24
 */
 let projects = [];
@@ -25,7 +25,7 @@ function handleFiles(files) {
 
 function getAsText(fileToRead) {
     var reader = new FileReader('../test.csv');
-    // Read file into memory as UTF-8      
+    // Read file into memory as UTF-8
     reader.readAsText(fileToRead);
     // Handle errors load
     reader.onload = loadHandler;
@@ -101,4 +101,26 @@ function populateModal(name) {
     $("#advisorPhoto").attr("src", 'images/' + currentModal.advisor_photo);
     $("#studentPhoto").attr("src", 'images/' + currentModal.student_photo);
     $("#projectPhoto").attr("src", 'images/' + currentModal.project_photo);
+}
+
+//Do the Tab™
+function openTheTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }

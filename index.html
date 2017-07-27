@@ -19,11 +19,10 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
 
 </head>
 
-<body>
-
+<body class="gradientBG">
     <div class="container">
       <!--text that says SURGE Kiosk-->
-        <h1 class="text-center">SURGE Kiosk </h1>
+        <h1 class="text-center" style="color:#0033cc">SURGE Kiosk </h1>
     </div>
 
     <!--selecting the scripts from the script folder: source = "foldername/filename.js"-->
@@ -52,7 +51,7 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                 </div>
                 <!--This div contains the body portion of the Modal-->
                 <div class="modal-body">
-                  <!-- original in case i mess up hard -Alex
+                  <!-- original in case I mess up hard -Alex
                     <div class="modal-grid">
                         <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
                         <div class="sub-stacking-grid">
@@ -63,17 +62,22 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                         </div>
                     </div>
                   -->
+                  <!--Starting the Tab class inside the body of the modal-->
                   <div class="tab">
+                    <!--Call the tab function and pass in values-->
                     <button class="tablinks" onclick="openTheTab(event, 'PDF')">The PDF™</button>
                     <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
                   </div>
 
+                  <!--Tab data for the details in the pdf section-->
                   <div id="PDF" class="tabcontent">
                     <div class="modal-grid">
-                      <embed src="./images/sample-poster.pdf" width="1050px" height="788px">
+                      <!--pull the appropriate poster to be fixed later-->
+                      <embed src="./images/sample-poster.pdf" width="1118px" height="885px">
                     </div>
                   </div>
 
+                  <!--Tab data for the details in the Details section-->
                   <div id="Details" class="tabcontent">
                     <div class="modal-grid">
                         <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
@@ -83,11 +87,11 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                             <img id="studentPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
                             <span id="studentNames">Student Names</span>
                         </div>
-                        <div id="projectDescription" class="modal-footer">
+                    </div>
+                    <div id="projectDescription" class="modal-footer">
 -                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
 -                    consequuntur.
 -                     </div>
-                    </div>
                   </div>
 
 

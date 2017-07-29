@@ -52,12 +52,12 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                     <!--Starting the Tab class inside the body of the modal-->
                     <div class="tab">
                         <!--Call the tab function and pass in values-->
-                        <button class="tablinks" onclick="openTheTab(event, 'PDF')">The PDF™</button>
+                        <button class="tablinks active" onclick="openTheTab(event, 'PDF')">The PDF™</button>
                         <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
                     </div>
 
                     <!--Tab data for the details in the pdf section-->
-                    <div id="PDF" class="tabcontent">
+                    <div id="PDF" class="tabcontent" style="display:block;">
                         <div class="modal-grid">
                             <!--pull the appropriate poster to be fixed later-->
                             <embed src="./images/sample-poster.pdf" width="1118px" height="885px">
@@ -65,7 +65,7 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                     </div>
 
                     <!--Tab data for the details in the Details section-->
-                    <div id="Details" class="tabcontent">
+                    <div id="Details" class="tabcontent" style="display:none;">
                         <div class="modal-grid">
                             <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
                             <div class="sub-stacking-grid">
@@ -84,10 +84,10 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
             </div>
         </div>
     </div>
-    <script src="scripts/surge.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/surge.js"></script>
 </body>
 
 </html>

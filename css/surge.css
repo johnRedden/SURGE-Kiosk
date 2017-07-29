@@ -1,22 +1,11 @@
 ﻿body {
-    /*
     background-color: black;
-    color: white;
-    */
+    /* color: white; */
 }
-
-.gradientBG{
-  /*background the same as the cos website*/
-  background-image: url('../images/tree_watermark.png'), url('../images/gradient.jpg');
-  background-position: center;
-  background-repeat: repeat-x;
-  background-size: contain;
-}
-
 
 .modal-dialog {
-    width: 1150px;
-    margin: 10px auto;
+    width: 1050px;
+    margin: 30px auto;
 }
 
 .alert:hover {

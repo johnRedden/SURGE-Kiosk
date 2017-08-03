@@ -11,12 +11,28 @@
     <link rel="stylesheet" href="css/surge.css">
 
     <ul>
-      <li><a href="#import">Import</a></li>
+        <li><a href="" data-toggle="modal" data-target="#importModal" role="alert">Import</a></li>
     </ul>
+
+    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!--This div contains the header portion of the Modal-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Import File</h4>
+                </div>
+                <!--This div contains the body portion of the Modal-->
+                <div class="modal-body">
+                    <input type="file" onchange="handleFiles(this.files)" accept=".csv">
+                </div>
+            </div>
+        </div>
+    </div>
 </head>
 
 <body class="gradientBG">
-    <input type="file" onchange="handleFiles(this.files)" accept=".csv">
 
     <!--text that says SURGE Kiosk-->
     <h1 class="text-center" style="color:#0033cc">SURGE Kiosk </h1>

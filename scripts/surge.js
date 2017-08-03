@@ -95,8 +95,8 @@ function populateProjects() {
 }
 
 function populateModal(name) {
-    $('#col1').html('');
-    $("#col2").html('');
+    // $('#col1').html('');
+    // $("#col2").html('');
     let currentModal = projects[_.findKey(projects, { 'project_name': name })];
     $('#projectName').text(currentModal.project_name);
     $('#studentNames').text(currentModal.students);

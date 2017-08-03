@@ -85,6 +85,8 @@ function CSVtoArray(text) {
 }
 
 function populateProjects() {
+    $('#col1').html('');
+    $("#col2").html('');
     for (let i = 0; i < projects.length; i++) {
         $(".col-" + (i % 2 + 1)).append(
             '<div class="alert alert-warning" onclick="populateModal(\'' + projects[i].project_name + '\' )" data-toggle="modal" data-target="#myModal" role="alert">' +
@@ -95,8 +97,6 @@ function populateProjects() {
 }
 
 function populateModal(name) {
-    // $('#col1').html('');
-    // $("#col2").html('');
     let currentModal = projects[_.findKey(projects, { 'project_name': name })];
     $('#projectName').text(currentModal.project_name);
     $('#studentNames').text(currentModal.students);

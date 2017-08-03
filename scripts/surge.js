@@ -53,7 +53,7 @@ function loadHandler(event) {
         }
         projectsIn.push(object);
     }
-    localStorage.setItem('projects', JSON.stringify(projects.slice(0, projects.length - 1)));
+    localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length - 1)));
     projects = projectsIn;
     populateProjects();
 }

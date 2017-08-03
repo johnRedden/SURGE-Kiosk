@@ -35,7 +35,7 @@ function getAsText(fileToRead) {
 }
 
 function loadHandler(event) {
-    let projects = [];
+    let projectsIn = [];
     let fragments = event.target.result.split('\n');
     let formattedFragments = [];
     for (const fragment of fragments) {
@@ -51,9 +51,11 @@ function loadHandler(event) {
             object[title.replace(' ', '_').toLowerCase()] = project[i];
             i++;
         }
-        projects.push(object);
+        projectsIn.push(object);
     }
     localStorage.setItem('projects', JSON.stringify(projects.slice(0, projects.length - 1)));
+    projects = projectsIn;
+    populateProjects();
 }
 
 

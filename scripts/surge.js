@@ -35,7 +35,7 @@ function getAsText(fileToRead) {
 }
 
 function loadHandler(event) {
-    let projectsIn = [];
+    let projects = [];
     let fragments = event.target.result.split('\n');
     let formattedFragments = [];
     for (const fragment of fragments) {
@@ -51,11 +51,9 @@ function loadHandler(event) {
             object[title.replace(' ', '_').toLowerCase()] = project[i];
             i++;
         }
-        projectsIn.push(object);
+        projects.push(object);
     }
-    localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length - 1)));
-    projects = projectsIn;
-    populateProjects();
+    localStorage.setItem('projects', JSON.stringify(projects.slice(0, projects.length - 1)));
 }
 
 
@@ -97,6 +95,8 @@ function populateProjects() {
 }
 
 function populateModal(name) {
+    $('#col1').html('');
+    $("#col2").html('');
     let currentModal = projects[_.findKey(projects, { 'project_name': name })];
     $('#projectName').text(currentModal.project_name);
     $('#studentNames').text(currentModal.students);

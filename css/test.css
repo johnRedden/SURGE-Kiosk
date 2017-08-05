@@ -1,0 +1,194 @@
+﻿h1 {
+    font-size:62px;
+    font-family:Batang;
+}
+
+body {
+    /*
+    background-color: black;
+    color: white;1328 747
+    */
+
+    overflow-y:hidden;
+}
+/*#PDF #Details{
+    display:none;
+}*/
+
+#bottomContainer {
+    margin-left:75px;
+}
+.jumboTron {
+    margin:auto;
+    border: 2px solid black;
+    height: 500px;
+    width: 1600px;
+    background-color: #ccc;
+    background-image: url('../images/20160726_165127.jpg');
+    background-size: 1600px 1000px;
+    background-position: center;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    box-shadow: 10px 10px 30px #000000;
+}
+
+#boxContainer {
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+    width: 90%;
+    display: block;
+}
+
+#boxContainer li {
+    display: inline-block;
+    position: relative;
+    /*//margin:0px;
+    //bottom:0;
+    /*/ list-style-type: none;
+}
+.box:hover {
+    color:#6788bf; 
+    background-color: #355a99;
+    text-shadow: 0 1px 1px rgba(0,0,155,0.2);
+}
+div .box{
+    line-height:20px;
+}
+.box {
+    position: inherit;
+    padding: 0px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 90px;
+    margin: 3px;
+    display: inline-flex;
+    justify-content: center;
+    background-color: #6788bf;
+    /*
+    align-content: center;
+    margin-top:100px;
+    */
+}
+
+.box p {
+    /*margin: 0px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    word-break:break-word;
+    transform: translate(-50%, -50%);*/
+    font-family:Cooper;
+    padding-top:10px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 20px;
+    font-size: 22px;
+    text-shadow:0 1px 1px rgba(0,0,40,0.2);
+}
+
+
+html {
+    height: 100%;
+}
+
+.gradientBG {
+    /*background the same as the cos website*/
+    background-image: url('../images/tree_watermark.png'), url('../images/gradient.jpg');
+    background-position: center;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.modal-dialog {
+    width: 1150px;
+    margin: 10px auto;
+}
+
+.alert:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.main-logo {
+    max-width: 300px;
+    height: auto;
+    margin: auto;
+}
+
+.modal-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sub-stacking-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal-grid img {
+    margin: 5px;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+
+/*tab css things i totally didn't copy paste from W3 schools*/
+
+
+/* Style the tab */
+
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-left:42%;
+    width:300px;
+    display:none;
+}
+
+
+/* Style the buttons inside the tab */
+
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    width:50%;
+    transition: 0.3s;
+}
+
+
+/* Change background color of buttons on hover */
+
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+
+/* Create an active/current tablink class */
+
+div.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    /*display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;*/
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+}

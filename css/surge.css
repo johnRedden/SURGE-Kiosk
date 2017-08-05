@@ -9,38 +9,8 @@ html {
     height: 100%;
 }
 
-/*navigation bar on top stuff*/
-/*messing with ul elements*/
-ul{
-  /*removes the bullets*/
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li{
-  float: right;
-}
-
-/*messes with the <li><a...> elements*/
-li a{
-  display: block;
-  color: orange;
-  padding: 14px 16px;
-  text-decoration: none;
-  text-align: center;
-}
-
-/*changes the link color when the cursor hovers on it*/
-li a:hover{
-  background-color: #555;
-  color: #80bfff;
-}
-
-/*background the same as the cos website*/
 .gradientBG {
+    /*background the same as the cos website*/
     background-image: url('../images/tree_watermark.png'), url('../images/gradient.jpg');
     background-position: center;
     background-repeat: repeat-x;

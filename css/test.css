@@ -1,6 +1,6 @@
 ﻿h1 {
-    font-size:62px;
-    font-family:Batang;
+    font-size: 62px;
+    font-family: Batang;
 }
 
 body {
@@ -8,18 +8,11 @@ body {
     background-color: black;
     color: white;1328 747
     */
-
-    overflow-y:hidden;
+    overflow-y: hidden;
 }
-/*#PDF #Details{
-    display:none;
-}*/
 
-#bottomContainer {
-    margin-left:75px;
-}
 .jumboTron {
-    margin:auto;
+    margin: auto;
     border: 2px solid black;
     height: 500px;
     width: 1600px;
@@ -27,42 +20,56 @@ body {
     background-image: url('../images/20160726_165127.jpg');
     background-size: 1600px 1000px;
     background-position: center;
-    overflow-x:hidden;
-    overflow-y:hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     box-shadow: 10px 10px 30px #000000;
 }
 
+#bottomContainer,
 #boxContainer {
-    bottom: 0;
     position: absolute;
-    margin: auto;
-    width: 90%;
-    display: block;
+    width: 100%;
+    bottom: 0;
+    height: 55%;
 }
 
-#boxContainer li {
-    display: inline-block;
+#boxContainer {
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-end;
+    /* NEW */
+}
+
+#boxContainer div {
     position: relative;
-    /*//margin:0px;
-    //bottom:0;
-    /*/ list-style-type: none;
+    max-height: 75%;
+    text-align: center;
+    flex: 20% 1;
+    list-style-type: none;
 }
+
 .box:hover {
-    color:#6788bf; 
+    color: #6788bf;
     background-color: #355a99;
-    text-shadow: 0 1px 1px rgba(0,0,155,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 155, 0.2);
 }
-div .box{
-    line-height:20px;
+
+div .box {
+    line-height: 20px;
 }
+
 .box {
     position: inherit;
-    padding: 0px;
-    border: 2px solid black;
-    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* border-radius: 10px; */
     width: 200px;
-    height: 90px;
-    margin: 3px;
+    /* height: 120px; */
+    /* margin: 3px; */
     display: inline-flex;
     justify-content: center;
     background-color: #6788bf;
@@ -79,15 +86,14 @@ div .box{
     left: 50%;
     word-break:break-word;
     transform: translate(-50%, -50%);*/
-    font-family:Cooper;
-    padding-top:10px;
+    font-family: Cooper;
+    padding-top: 10px;
     text-align: center;
     word-wrap: break-word;
     line-height: 20px;
     font-size: 22px;
-    text-shadow:0 1px 1px rgba(0,0,40,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 40, 0.2);
 }
-
 
 html {
     height: 100%;
@@ -147,9 +153,9 @@ div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
-    margin-left:42%;
-    width:300px;
-    display:none;
+    margin-left: 42%;
+    width: 300px;
+    display: none;
 }
 
 
@@ -162,7 +168,7 @@ div.tab button {
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    width:50%;
+    width: 50%;
     transition: 0.3s;
 }
 

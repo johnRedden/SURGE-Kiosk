@@ -23,14 +23,14 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
     <input type="file" onchange="handleFiles(this.files)" accept=".csv">
     <div class="jumboTron">
         <!--text that says SURGE Kiosk   <h1 class="text-center" style="color:#0033cc">SURGE Kiosk </h1>-->
+            
 
-
-        <div id="PDF" class="tabcontent">
+        <div id="PDF" class="tabcontent" >
             <div class="modal-grid">
-
-                <embed src="./images/sample-poster.pdf" width="1600px" height="1300px" style="overflow:hidden; min-height: 150%">
+                            
+                <embed src="./images/sample-poster.pdf"  width="1600px" height="1300px" style="overflow:hidden; min-height: 150%">
             </div>
-        </div>
+        </div>               
         <div id="Details" class="tabcontent">
             <div class="modal-grid">
                 <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
@@ -42,22 +42,36 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
                 </div>
             </div>
             <div id="projectDescription" class="modal-footer">
-                - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
-                - consequuntur. -
+                            - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
+                            - consequuntur. -
             </div>
         </div>
         <!--selecting the scripts from the script folder: source = "foldername/filename.js" 1118px" height="885px-->
 
     </div>
     <div class="tab">
-        <!--Call the tab function and pass in values-->
-        <button class="tablinks PDF" onclick="openTheTab(event, 'PDF')">The PDF™</button>
-        <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
-    </div>
+            <!--Call the tab function and pass in values-->
+            <button class="tablinks PDF" onclick="openTheTab(event, 'PDF')">The PDF™</button>
+            <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
+        </div>
     <!--The div that contains the SURGE logo-->
-    <div id="bottomContainer">
-        <div id="boxContainer" class="project-buttons-container"></div>
-    </div>
+    <div class="container-fluid">
+        <!--positioning stuff-->
+        <div class="col-lg-4 text-center col-1"></div>
+        <div class="col-lg-4 text-center" style="padding-top:25px;">
+            <!--    pulling hte logo from the images folder: source = "./foldername/imagename.filetype"-->
+            <img id="logo" src="./images/logo.png" alt="" class="main-logo">
+        </div>
+        <div class="col-lg-4 text-center col-2"></div>
+        <div id="bottomContainer">
+            <ul id="boxContainer">
+
+                <!--  <li ><div class="box"><p>ok1</p></div></li>
+              <li><div class="box"><p>ok1</p></div></li>-->
+
+            </ul>
+        </div>
+</div>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -6,7 +6,7 @@ let projects = [];
 $(document).ready(function() {
     projects = JSON.parse(localStorage.getItem('projects'));
     window.addEventListener("contextmenu", function(args) { args.preventDefault(); });
-    
+
     if (!projects) {
         // Do whatever we plan to do if we don't have data in localstorage yet.
     } else {
@@ -92,9 +92,9 @@ function populateProjects() {
         //    '</div>'             
         //);
         $("#boxContainer").append(
-            '<li ><div class="box" id=\''+projects[i].project_name +'\' onclick="populateModal(\'' + projects[i].project_name + '\' )" role="alert"><p>' +
+            '<div class="box" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\' )" role="alert"><p>' +
             projects[i].project_name +
-            '</p></div ></li >'
+            '</p></div >'
         );
     }
 }

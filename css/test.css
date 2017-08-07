@@ -2,7 +2,51 @@
     font-size: 62px;
     font-family: Batang;
 }
-
+#imageContainer{
+    height:100%;  
+    width:100%;
+    display:none;
+}
+div.contentImageBox{
+    border:4px solid black;
+    display:inline-block;
+    background-color:#ccc;
+    width:20%;
+    height:50%;
+}
+#posOne{
+    position:relative;
+    background-image: url('../images/kiosk_test_pdf.png');
+    
+    background-position: center;
+    background-size: 100% 800px;
+    background-repeat:no-repeat;
+    float:right;
+    width:60%;
+    height:800px;
+}
+#advisorPhoto{
+     
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    
+   
+}
+#studentPhoto{
+    
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+  
+}
+#projectPhoto{
+    
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    width:40%;
+}
 body {
     /*
     background-color: black;
@@ -10,15 +54,17 @@ body {
     */
     overflow-y: hidden;
 }
-
+.jumboOn{
+    background-image: url('../images/20160726_165127.jpg');
+}
 .jumboTron {
+  
     margin: auto;
     border: 2px solid black;
-    height: 500px;
-    width: 1600px;
-    background-color: #ccc;
-    background-image: url('../images/20160726_165127.jpg');
-    background-size: 1600px 1000px;
+    height: 800px;
+    width: 90%;
+    
+    background-size: 100% 800px;
     background-position: center;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -60,7 +106,19 @@ body {
 div .box {
     line-height: 20px;
 }
+.selectedbox{
+    color: white;
+    background-color: #355a99;
+    border: 4px solid white;
+    text-shadow: 0 1px 1px rgba(0, 0, 155, 0.2 );
 
+}
+.unselectedbox{
+    color: #333;
+    background-color: #6788bf;
+    border: 1px solid rgba(0,0,0,0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 155, 0.2 );
+}
 .box {
     position: inherit;
     padding: 10px;
@@ -71,7 +129,7 @@ div .box {
     /* margin: 3px; */
     display: inline-flex;
     justify-content: center;
-    background-color: #6788bf;
+   
     /*
     align-content: center;
     margin-top:100px;

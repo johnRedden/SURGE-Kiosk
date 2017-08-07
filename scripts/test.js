@@ -3,7 +3,9 @@
     - Sabin 7/24
 */
 let projects = [];
+let toggle = -1;
 $(document).ready(function() {
+    
     projects = JSON.parse(localStorage.getItem('projects'));
     window.addEventListener("contextmenu", function(args) { args.preventDefault(); });
 
@@ -92,27 +94,42 @@ function populateProjects() {
         //    '</div>'             
         //);
         $("#boxContainer").append(
-            '<div class="box" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\' )" role="alert"><p>' +
+            '<div class="box unselectedbox '+ i + '" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\',' + i +')" role="alert"><p>' +
             projects[i].project_name +
             '</p></div >'
         );
     }
 }
 
-function populateModal(name) {
+function populateModal(name, box) {
     let currentModal = projects[_.findKey(projects, { 'project_name': name })];
-    $('#projectName').text(currentModal.project_name);
-    $('#studentNames').text(currentModal.students);
-    $('#advisorNames').text(currentModal.advisors);
-    $('div.tab').show();
-    $('.jumboTron').css("overflow-y", "scroll");
-    $('.jumboTron').css("background-image", "none");
-    $('.PDF').addClass("active");
-    $('#PDF').css("display", "block");
+    let currentBox =  $("."+box);
+
+    if(box === toggle) {
+        currentBox.removeClass('selectedbox');
+        currentBox.addClass('unselectedbox');
+        $('.jumboTron').addClass("jumboOn");
+        $("#imageContainer").hide();
+        toggle = -1
+
+    }
+    else {
+
+    $("."+toggle).removeClass('selectedbox');
+    $("."+toggle).addClass('unselectedbox');
     $('#projectDescription').text(currentModal.project_description);
-    $("#advisorPhoto").attr("src", 'images/' + currentModal.advisor_photo);
-    $("#studentPhoto").attr("src", 'images/' + currentModal.student_photo);
-    $("#projectPhoto").attr("src", 'images/' + currentModal.project_photo);
+    $("#advisorPhoto").css("background-image", 'url(images/' + currentModal.advisor_photo+')');
+    $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo+')');
+    $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo+')');
+    
+    currentBox.removeClass('unselectedbox');
+    currentBox.addClass('selectedbox');
+    $('.jumboTron').removeClass("jumboOn");
+    $("#imageContainer").show();
+        toggle = box;
+    }
+    
+
 }
 //Do the Tab™
 function openTheTab(evt, tabName) {

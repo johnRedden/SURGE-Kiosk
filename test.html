@@ -1,11 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<!--
-I'm labeling this so i can keep track of what does what and for the new ppl in the projects some stuff might be unlabled because i'm lazy
--Alex 7/25
--->
-
 <head>
     <!--Title of the page-->
     <title>SURGE KIOSK</title>
@@ -13,63 +8,90 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
     <meta charset="utf-8">
     <!--linking the CSS to the page-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/test.css">
-    <style>
+    <link rel="stylesheet" href="css/surge.css">
 
-    </style>
+    <!-- <ul>
+        <li><a href="" data-toggle="modal" data-target="#importModal" role="alert">Import</a></li>
+    </ul> -->
+
+    <!-- <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Import File</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="file" onchange="handleFiles(this.files)" accept=".csv">
+                </div>
+            </div>
+        </div>
+    </div> -->
 </head>
 
 <body class="gradientBG">
-    <input type="file" onchange="handleFiles(this.files)" accept=".csv">
-    <div class="jumboTron jumboOn">
-        <!--text that says SURGE Kiosk   <h1 class="text-center" style="color:#0033cc">SURGE Kiosk </h1>-->
-        <div id="imageContainer">
-            <div id='posOne' class='contentImageBox'>
-            
-            </div> <!--       
-        --><div id='studentPhoto' class='contentImageBox'>
-           
-            </div><!--   
-        --><div id='advisorPhoto' class='contentImageBox'>
 
-            </div><!-- 
-         --><div id='projectPhoto' class='contentImageBox'>
-            
-            </div> 
-        </div>
-        <!--<div id="PDF" class="tabcontent">
-            <div class="modal-grid">
+    <!--text that says SURGE Kiosk-->
+    <!-- <h1 class="text-center" style="color:#0033cc">SURGE Kiosk </h1> -->
 
-                <embed src="./images/sample-poster.pdf" width="1600px" height="1300px" style="overflow:hidden; min-height: 150%">
-            </div>
-        </div>
-        <div id="Details" class="tabcontent">
-            <div class="modal-grid">
-                <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
-                <div class="sub-stacking-grid">
-                    <img id="advisorPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
-                    <span id="advisorNames">Advisor Names</span>
-                    <img id="studentPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
-                    <span id="studentNames">Student Names</span>
-                </div>
-            </div>
-            <div id="projectDescription" class="modal-footer">
-                - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
-                - consequuntur. -
-            </div>
-        </div>-->
-        <!--selecting the scripts from the script folder: source = "foldername/filename.js" 1118px" height="885px-->
+    <!--selecting the scripts from the script folder: source = "foldername/filename.js"-->
 
-    </div>
-    <div id="colorCheck" style="display:none;"></div>
     <!--The div that contains the SURGE logo-->
-    <div id="bottomContainer">
-        <div id="boxContainer" class="project-buttons-container"></div>
+    <div class="container-fluid">
+
+        <!--positioning stuff-->
+        <div class="col-lg-4 text-center col-1" id="col1"></div>
+        <div class="col-lg-4 text-center" style="padding-top:25%;">
+            <!--pulling hte logo from the images folder: source = "./foldername/imagename.filetype"-->
+            <img src="./images/logo.png" alt="" class="main-logo">
+        </div>
+        <div class="col-lg-4 text-center col-2" id="col2"></div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!--This div contains the header portion of the Modal-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="projectName">Project Name</h4>
+                </div>
+                <!--This div contains the body portion of the Modal-->
+                <div class="modal-body">
 
+                    <!--Starting the Tab class inside the body of the modal-->
+                    <div class="tab">
+                        <!--Call the tab function and pass in values-->
+                        <button class="tablinks active" onclick="openTheTab(event, 'PDF')">The PDF™</button>
+                        <button class="tablinks" onclick="openTheTab(event, 'Details')">Details</button>
+                    </div>
 
+                    <!--Tab data for the details in the pdf section-->
+                    <div id="PDF" class="tabcontent" style="display:block;">
+                        <div class="modal-grid">
+                            <!--pull the appropriate poster to be fixed later-->
+                            <embed src="./images/sample-poster.pdf" width="1118px" height="885px">
+                        </div>
+                    </div>
 
+                    <!--Tab data for the details in the Details section-->
+                    <div id="Details" class="tabcontent" style="display:none;">
+                        <div class="modal-grid">
+                            <img id="projectPhoto" class="img-responsive" src="http://placehold.it/400x400" alt="">
+                            <div class="sub-stacking-grid">
+                                <img id="advisorPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
+                                <span id="advisorNames">Advisor Names</span>
+                                <img id="studentPhoto" class="img-responsive" src="http://placehold.it/200x200" alt="">
+                                <span id="studentNames">Student Names</span>
+                            </div>
+                        </div>
+                        <div id="projectDescription" class="modal-footer">
+                            - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis voluptates tempora qui maxime sapiente necessitatibus accusamus porro expedita aspernatur, repellat mollitia magnam exercitationem veniam quisquam vel reprehenderit inventore laborum,
+                            - consequuntur. -
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,7 +99,7 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
     <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/test.js"></script>
+    <script src="scripts/surge.js"></script>
 </body>
 
 </html>

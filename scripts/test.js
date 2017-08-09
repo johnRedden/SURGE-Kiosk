@@ -5,7 +5,7 @@
 let projects = [];
 let toggle = -1;
 $(document).ready(function() {
-    
+
     projects = JSON.parse(localStorage.getItem('projects'));
     window.addEventListener("contextmenu", function(args) { args.preventDefault(); });
 
@@ -61,7 +61,7 @@ function loadHandler(event) {
 
 function errorHandler(evt) {
     if (evt.target.error.name == "NotReadableError") {
-        alert("Canno't read file !");
+        alert("Can't read file !");
     }
 }
 
@@ -88,13 +88,9 @@ function CSVtoArray(text) {
 
 function populateProjects() {
     for (let i = 0; i < projects.length; i++) {
-        //$(".col-" + (i % 2 + 1)).append(
-        //    '<div class="alert alert-warning" onclick="populateModal(\'' + projects[i].project_name + '\' )" data-toggle="modal" data-target="#myModal" role="alert">' +
-        //    projects[i].project_name +
-        //    '</div>'             
-        //);
-        $("#boxContainer").append(
-            '<div class="box unselectedbox '+ i + '" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\',' + i +')" role="alert"><p>' +
+
+        $("#bottomContainer").append(
+            '<div class="project-button unselectedbox ' + i + '" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\',' + i + ')" role="alert"><p>' +
             projects[i].project_name +
             '</p></div >'
         );
@@ -103,32 +99,27 @@ function populateProjects() {
 
 function populateModal(name, box) {
     let currentModal = projects[_.findKey(projects, { 'project_name': name })];
-    let currentBox =  $("."+box);
+    let currentBox = $("." + box);
 
-    if(box === toggle) {
+    if (box === toggle) {
         currentBox.removeClass('selectedbox');
         currentBox.addClass('unselectedbox');
-        $('.jumboTron').addClass("jumboOn");
-        $("#imageContainer").hide();
         toggle = -1
 
-    }
-    else {
+    } else {
 
-    $("."+toggle).removeClass('selectedbox');
-    $("."+toggle).addClass('unselectedbox');
-    $('#projectDescription').text(currentModal.project_description);
-    $("#advisorPhoto").css("background-image", 'url(images/' + currentModal.advisor_photo+')');
-    $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo+')');
-    $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo+')');
-    
-    currentBox.removeClass('unselectedbox');
-    currentBox.addClass('selectedbox');
-    $('.jumboTron').removeClass("jumboOn");
-    $("#imageContainer").show();
+        $("." + toggle).removeClass('selectedbox');
+        $("." + toggle).addClass('unselectedbox');
+        // $('#projectDescription').text(currentModal.project_description);
+        // $("#advisorPhoto").css("background-image", 'url(images/' + currentModal.advisor_photo + ')');
+        // $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo + ')');
+        // $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo + ')');
+
+        currentBox.removeClass('unselectedbox');
+        currentBox.addClass('selectedbox');
         toggle = box;
     }
-    
+
 
 }
 //Do the Tab™

@@ -9,6 +9,13 @@ $(document).ready(function() {
     projects = JSON.parse(localStorage.getItem('projects'));
     window.addEventListener("contextmenu", function(args) { args.preventDefault(); });
 
+    $('#reloader').click(function() {
+        location.reload();
+    });
+
+    $("#importToggler").click(function() {
+        $("#importModal").modal()
+    });
     if (!projects) {
         // Do whatever we plan to do if we don't have data in localstorage yet.
     } else {
@@ -18,7 +25,8 @@ $(document).ready(function() {
 
 
 function handleFiles(files) {
-    // Check for the various File API support.
+    console.log('Handling Files')
+        // Check for the various File API support.
     if (window.FileReader) {
         // FileReader are supported.
         getAsText(files[0]);
@@ -28,7 +36,7 @@ function handleFiles(files) {
 }
 
 function getAsText(fileToRead) {
-    var reader = new FileReader('../test.csv');
+    var reader = new FileReader();
     // Read file into memory as UTF-8
     reader.readAsText(fileToRead);
     // Handle errors load
@@ -37,7 +45,7 @@ function getAsText(fileToRead) {
 }
 
 function loadHandler(event) {
-    let projects = [];
+    let projectsIn = [];
     let fragments = event.target.result.split('\n');
     let formattedFragments = [];
     for (const fragment of fragments) {
@@ -53,9 +61,11 @@ function loadHandler(event) {
             object[title.replace(' ', '_').toLowerCase()] = project[i];
             i++;
         }
-        projects.push(object);
+        projectsIn.push(object);
     }
-    localStorage.setItem('projects', JSON.stringify(projects.slice(0, projects.length - 1)));
+    localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length - 1)));
+    projects = JSON.parse(localStorage.getItem('projects'));
+    populateProjects();
 }
 
 
@@ -87,8 +97,8 @@ function CSVtoArray(text) {
 }
 
 function populateProjects() {
+    $('#bottomContainer').empty();
     for (let i = 0; i < projects.length; i++) {
-
         $("#bottomContainer").append(
             '<div class="project-button unselectedbox ' + i + '" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\',' + i + ')" role="alert"><p>' +
             projects[i].project_name +
@@ -110,9 +120,11 @@ function populateModal(name, box) {
 
         $("." + toggle).removeClass('selectedbox');
         $("." + toggle).addClass('unselectedbox');
-        // $('#projectDescription').text(currentModal.project_description);
+        $('#projectDescription').text(currentModal.project_description);
         // $("#advisorPhoto").css("background-image", 'url(images/' + currentModal.advisor_photo + ')');
         // $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo + ')');
+        $('#studentPhoto').attr('src', 'images/' + currentModal.student_photo);
+        $('#advisorPhoto').attr('src', 'images/' + currentModal.advisor_photo);
         // $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo + ')');
 
         currentBox.removeClass('unselectedbox');

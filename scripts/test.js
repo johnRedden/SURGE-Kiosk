@@ -53,15 +53,16 @@ function loadHandler(event) {
     }
     let titles = formattedFragments[3];
     formattedFragments = formattedFragments.splice(4);
-
     for (const project of formattedFragments) {
-        let object = {};
-        let i = 0;
-        for (let title of titles) {
-            object[title.replace(' ', '_').toLowerCase()] = project[i];
-            i++;
+        if (project != null) {
+            let object = {};
+            let i = 0;
+            for (let title of titles) {
+                object[title.replace(' ', '_').toLowerCase()] = project[i];
+                i++;
+            }
+            projectsIn.push(object);
         }
-        projectsIn.push(object);
     }
     localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length - 1)));
     projects = JSON.parse(localStorage.getItem('projects'));
@@ -117,7 +118,7 @@ function populateModal(name, box) {
         toggle = -1
 
     } else {
-
+        console.log(currentModal)
         $("." + toggle).removeClass('selectedbox');
         $("." + toggle).addClass('unselectedbox');
         $('#projectDescription').text(currentModal.project_description);
@@ -125,6 +126,7 @@ function populateModal(name, box) {
         // $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo + ')');
         $('#studentPhoto').attr('src', 'images/' + currentModal.student_photo);
         $('#advisorPhoto').attr('src', 'images/' + currentModal.advisor_photo);
+        $('#poster').attr('src', 'images/SURGE_Posters_Resized/' + currentModal.project_photo);
         // $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo + ')');
 
         currentBox.removeClass('unselectedbox');

@@ -25,8 +25,7 @@ $(document).ready(function() {
 
 
 function handleFiles(files) {
-    console.log('Handling Files')
-        // Check for the various File API support.
+    // Check for the various File API support.
     if (window.FileReader) {
         // FileReader are supported.
         getAsText(files[0]);
@@ -54,7 +53,7 @@ function loadHandler(event) {
     let titles = formattedFragments[3];
     formattedFragments = formattedFragments.splice(4);
     for (const project of formattedFragments) {
-        if (project != null) {
+        if (project != null && project.length > 0) {
             let object = {};
             let i = 0;
             for (let title of titles) {
@@ -78,10 +77,11 @@ function errorHandler(evt) {
 
 // Return array of string values, or NULL if CSV string not well formed.
 function CSVtoArray(text) {
+
     var re_valid = /^\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*(?:,\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*)*$/;
     var re_value = /(?!\s*$)\s*(?:'([^'\\]*(?:\\[\S\s][^'\\]*)*)'|"([^"\\]*(?:\\[\S\s][^"\\]*)*)"|([^,'"\s\\]*(?:\s+[^,'"\s\\]+)*))\s*(?:,|$)/g;
     // Return NULL if input string is not well formed CSV string.
-    if (!re_valid.test(text)) return null;
+    if (!re_valid.test(text)) { return null; }
     var a = []; // Initialize array to receive values.
     text.replace(re_value, // "Walk" the string using replace with callback.
         function(m0, m1, m2, m3) {
@@ -118,7 +118,6 @@ function populateModal(name, box) {
         toggle = -1
 
     } else {
-        console.log(currentModal)
         $("." + toggle).removeClass('selectedbox');
         $("." + toggle).addClass('unselectedbox');
         $('#projectDescription').text(currentModal.project_description);

@@ -136,6 +136,12 @@ function populateModal(name, box) {
 
 
 }
+
+function populateImageModal(event) {
+    let src = event.target.outerHTML.split('src="')[1].split('" class=')[0];
+    $('#modalImage').attr('src', src);
+    $("#imageModal").modal();
+}
 //Do the Tab™
 function openTheTab(evt, tabName) {
     // Declare all variables

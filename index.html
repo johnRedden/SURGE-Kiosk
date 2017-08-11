@@ -31,20 +31,32 @@ I'm labeling this so i can keep track of what does what and for the new ppl in t
             </div>
         </div>
     </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog image-modal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" class="img img-responsive" src="images/poster.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- <input type="file" onchange="handleFiles(this.files)" accept=".csv"> -->
     <div class="page-grid">
         <div class="top-section imageContainer">
             <div class="main-photo">
-                <img id="poster" src="images/poster.png" class="img img-responsive main-image">
+                <img id="poster" onclick="populateImageModal(event)" src="images/poster.png" class="img img-responsive main-image">
             </div>
             <div class="sub-info">
                 <div class="stuff">
-                    <img id="studentPhoto" src="http://rentportlandhomes.com/wp-content/uploads/2015/10/college-students.jpg" class="img-responsive sub-image">
+                    <img id="studentPhoto" onclick="populateImageModal(event)" src="http://rentportlandhomes.com/wp-content/uploads/2015/10/college-students.jpg" class="img-responsive sub-image">
                     <img src="images/coslogo.jpg" id="importToggler" class="img-responsive sub-image">
                 </div>
                 <div class="stuff">
                     <img id="reloader" src="images/surgelogo.jpg" class="img-responsive sub-image">
-                    <img id="advisorPhoto" src="https://cdn.pixabay.com/photo/2015/08/27/11/13/birger-kollmeier-910261_960_720.jpg" class="img-responsive sub-image">
+                    <img id="advisorPhoto" onclick="populateImageModal(event)" src="https://cdn.pixabay.com/photo/2015/08/27/11/13/birger-kollmeier-910261_960_720.jpg" class="img-responsive sub-image">
                 </div>
             </div>
         </div>

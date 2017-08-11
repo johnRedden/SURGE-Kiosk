@@ -11,6 +11,11 @@ html {
     height: 400px;
 }
 
+.modal-dialog.image-modal img {
+    margin: auto;
+    text-align: center;
+}
+
 .page-grid {
     display: flex;
     flex-direction: column;

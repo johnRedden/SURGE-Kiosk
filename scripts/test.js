@@ -7,7 +7,9 @@ let toggle = -1;
 $(document).ready(function() {
 
     projects = JSON.parse(localStorage.getItem('projects'));
-    window.addEventListener("contextmenu", function(args) { args.preventDefault(); });
+    window.addEventListener("contextmenu", function(args) {
+        args.preventDefault();
+    });
 
     $('#reloader').click(function() {
         location.reload();
@@ -63,7 +65,7 @@ function loadHandler(event) {
             projectsIn.push(object);
         }
     }
-    localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length - 1)));
+    localStorage.setItem('projects', JSON.stringify(projectsIn.slice(0, projectsIn.length)));
     projects = JSON.parse(localStorage.getItem('projects'));
     populateProjects();
 }
@@ -81,15 +83,17 @@ function CSVtoArray(text) {
     var re_valid = /^\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*(?:,\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*)*$/;
     var re_value = /(?!\s*$)\s*(?:'([^'\\]*(?:\\[\S\s][^'\\]*)*)'|"([^"\\]*(?:\\[\S\s][^"\\]*)*)"|([^,'"\s\\]*(?:\s+[^,'"\s\\]+)*))\s*(?:,|$)/g;
     // Return NULL if input string is not well formed CSV string.
+    text = text.replace(/\'/g, '123456');
+
     if (!re_valid.test(text)) { return null; }
     var a = []; // Initialize array to receive values.
     text.replace(re_value, // "Walk" the string using replace with callback.
         function(m0, m1, m2, m3) {
             // Remove backslash from \' in single quoted values.
-            if (m1 !== undefined) a.push(m1.replace(/\\'/g, "'"));
+            if (m1 !== undefined) a.push(m1.replace(/\\'/g, "'").replace(/123456/g, "'"));
             // Remove backslash from \" in double quoted values.
-            else if (m2 !== undefined) a.push(m2.replace(/\\"/g, '"'));
-            else if (m3 !== undefined) a.push(m3);
+            else if (m2 !== undefined) a.push(m2.replace(/\\"/g, '"').replace(/123456/g, "'"));
+            else if (m3 !== undefined) a.push(m3.replace(/123456/g, "'"));
             return ''; // Return empty string.
         });
     // Handle special case of empty last value.
@@ -101,7 +105,7 @@ function populateProjects() {
     $('#bottomContainer').empty();
     for (let i = 0; i < projects.length; i++) {
         $("#bottomContainer").append(
-            '<div class="project-button unselectedbox ' + i + '" id=\'' + projects[i].project_name + '\' onclick="populateModal(\'' + projects[i].project_name + '\',' + i + ')" role="alert"><p>' +
+            '<div class="project-button unselectedbox ' + i + '" id=\"' + projects[i].project_name + '\" onclick="populateModal(\'' + projects[i].project_name.replace(/'/g, "\\'") + '\',' + i + ')" role="alert"><p>' +
             projects[i].project_name +
             '</p></div >'
         );
@@ -109,7 +113,10 @@ function populateProjects() {
 }
 
 function populateModal(name, box) {
-    let currentModal = projects[_.findKey(projects, { 'project_name': name })];
+    console.log(name);
+    let currentModal = projects[_.findKey(projects, {
+        'project_name': name.toString()
+    })];
     let currentBox = $("." + box);
 
     if (box === toggle) {
@@ -121,12 +128,9 @@ function populateModal(name, box) {
         $("." + toggle).removeClass('selectedbox');
         $("." + toggle).addClass('unselectedbox');
         $('#projectDescription').text(currentModal.project_description);
-        // $("#advisorPhoto").css("background-image", 'url(images/' + currentModal.advisor_photo + ')');
-        // $("#studentPhoto").css("background-image", 'url(images/' + currentModal.student_photo + ')');
         $('#studentPhoto').attr('src', 'images/' + currentModal.student_photo);
         $('#advisorPhoto').attr('src', 'images/' + currentModal.advisor_photo);
         $('#poster').attr('src', 'images/SURGE_Posters_Resized/' + currentModal.project_photo);
-        // $("#projectPhoto").css("background-image", 'url(images/' + currentModal.project_photo + ')');
 
         currentBox.removeClass('unselectedbox');
         currentBox.addClass('selectedbox');

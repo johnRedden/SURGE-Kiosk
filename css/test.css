@@ -11,8 +11,15 @@ html {
     height: 400px;
 }
 
+.modal-dialog.image-modal {
+    width: 90%;
+    height: auto;
+    max-height: 90%;
+}
+
 .modal-dialog.image-modal img {
     margin: auto;
+    height: 100%;
     text-align: center;
 }
 
